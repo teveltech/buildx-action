@@ -8,15 +8,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-#     - id: Enable docker qemu support
-#       run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-#       shell: bash
-    - id: Create docker buildx context
-      run: docker buildx create --use --node tevel --name tevel --config=${{ github.action_path }}/buildkit.toml
+    - run: docker buildx create --use --node tevel --name tevel --config=${{ github.action_path }}/buildkit.toml
       shell: bash
-    - id: Bootstrap docker buildx context
-      run: docker buildx inspect --bootstrap
+    - run: docker buildx inspect --bootstrap
       shell: bash
-#     - id: Build docker images
-#       run: docker buildx build . --platform ${{ inputs.platform }} --push --pull
-#       shell: bash
