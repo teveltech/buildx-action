@@ -40,4 +40,7 @@ insecure-entitlements = [ "network.host", "security.insecure" ]
   mirrors = ["10.10.20.211:8081"]
   http = true
   insecure = true
+  
+[dns]
+  nameservers = ["10.10.20.254"]
 
