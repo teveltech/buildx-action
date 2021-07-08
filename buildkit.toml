@@ -36,6 +36,6 @@ insecure-entitlements = [ "network.host", "security.insecure" ]
   insecure = false
 
 [registry."jfrog.local:8081"]
-  mirrors = ["jfrog.local:8082"]
+  mirrors = ["10.10.20.211:8082"]
   http = true
   insecure = true
