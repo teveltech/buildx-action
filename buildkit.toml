@@ -4,32 +4,6 @@ root = "/var/lib/buildkit"
 # insecure-entitlements allows insecure entitlements, disabled by default.
 insecure-entitlements = [ "network.host", "security.insecure" ]
 
-[worker.oci]
-  enabled = true
-  networkMode = "host"
-  # platforms is manually configure platforms, detected automatically if unset.
-  platforms = [ "linux/amd64", "linux/arm64" ]
-  snapshotter = "auto" # overlayfs or native, default value is "auto".
-  rootless = false # see docs/rootless.md for the details on rootless mode.
-  # Whether run subprocesses in main pid namespace or not, this is useful for
-  # running rootless buildkit inside a container.
-  noProcessSandbox = false
-  gc = true
-  gckeepstorage = 9000
-  # alternate OCI worker binary name(example 'crun'), by default either 
-  # buildkit-runc or runc binary is used
-  binary = ""
-  [worker.oci.labels]
-    "foo" = "bar"
-
-  [[worker.oci.gcpolicy]]
-    keepBytes = 512000000
-    keepDuration = 172800
-    filters = [ "type==source.local", "type==exec.cachemount", "type==source.git.checkout"]
-  [[worker.oci.gcpolicy]]
-    all = true
-    keepBytes = 1024000000
-
 # registry configures a new Docker register used for cache import or output.
 [registry."docker.io"]
   mirrors = ["hub.docker.io"]
