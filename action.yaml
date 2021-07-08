@@ -1,14 +1,9 @@
 name: 'Buildx Action'
 description: 'Build images using dockerx'
-inputs:
-  platform:
-    description: 'Build architectures'
-    required: true
-    default: 'linux/amd64'
 runs:
   using: "composite"
   steps:
-    - run: docker buildx create --use --node tevel --name tevel --config=${{ github.action_path }}/buildkit.toml --driver-opt network=host
+    - run: docker buildx create --use --node tevel --name tevel --driver-opt network=host --config=${{ github.action_path }}/buildkit.toml
       shell: bash
     - run: docker buildx inspect --bootstrap
       shell: bash
