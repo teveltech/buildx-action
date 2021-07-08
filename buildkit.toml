@@ -12,6 +12,7 @@ insecure-entitlements = [ "network.host", "security.insecure" ]
   rootless = false # see docs/rootless.md for the details on rootless mode.
   # Whether run subprocesses in main pid namespace or not, this is useful for
   # running rootless buildkit inside a container.
+  networkMode = "host"
   noProcessSandbox = false
   gc = true
   gckeepstorage = 9000
@@ -39,3 +40,4 @@ insecure-entitlements = [ "network.host", "security.insecure" ]
   mirrors = ["10.10.20.211:8081"]
   http = true
   insecure = true
+
