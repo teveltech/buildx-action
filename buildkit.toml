@@ -42,5 +42,5 @@ insecure-entitlements = [ "network.host", "security.insecure" ]
   insecure = true
   
 [dns]
-  nameservers = ["10.10.20.254"]
+  nameserdvers = ["10.10.20.254"]
 
