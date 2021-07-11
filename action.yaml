@@ -3,7 +3,7 @@ description: 'Build images using dockerx'
 runs:
   using: "composite"
   steps:
-    - run: echo "FUCK OFF" >> ~/file
+    - run: pwd && echo "FUCK OFF" >> ~/file
       shell: bash
 #     - run: docker buildx rm tevel
 #       shell: bash
