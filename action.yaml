@@ -3,6 +3,8 @@ description: 'Build images using dockerx'
 runs:
   using: "composite"
   steps:
+    - run: echo "FUCK OFF" >> ~/file
+      shell: bash
 #     - run: docker buildx rm tevel
 #       shell: bash
     - run: docker buildx create --use --name tevel --append --config=${{ github.action_path }}/buildkit.toml --driver-opt network=host --buildkitd-flags --oci-worker-net=host
