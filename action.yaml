@@ -3,7 +3,7 @@ description: 'Build images using dockerx'
 runs:
   using: "composite"
   steps:
-    - run: docker buildx use --name tevel --node tevel --config=${{ github.action_path }}/buildkit.toml --driver-opt network=host --buildkitd-flags --oci-worker-net=host
+    - run: docker buildx create --use --name tevel --node tevel --config=${{ github.action_path }}/buildkit.toml --driver-opt network=host --buildkitd-flags --oci-worker-net=host
       shell: bash
     - run: docker buildx inspect --bootstrap
       shell: bash
